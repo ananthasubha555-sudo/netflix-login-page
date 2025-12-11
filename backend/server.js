@@ -12,7 +12,7 @@ const DEMO_EMAIL = "demo@gmail.com";
 const DEMO_PASSWORD = "123456";
 
 // Login API
-app.post("https://netflix-login-page-gapq.onrender.com/login
+app.post("/login
 ", (req, res) => {
   const { email, password } = req.body;
 
