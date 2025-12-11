@@ -12,7 +12,8 @@ const DEMO_EMAIL = "demo@gmail.com";
 const DEMO_PASSWORD = "123456";
 
 // Login API
-app.post("/login", (req, res) => {
+app.post("https://netflix-login-page-gapq.onrender.com/login
+", (req, res) => {
   const { email, password } = req.body;
 
   if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
@@ -25,3 +26,4 @@ app.post("/login", (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Backend running on http://localhost:${PORT}`);
 });
+
