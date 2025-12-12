@@ -4,18 +4,24 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 
-app.use(cors(app.use(
+app.use(
   cors({
-    origin: "https://netflix-login-page-phi.vercel.app", // your frontend URL
+    origin: "https://netflix-login-page-phi.vercel.app",
     methods: "GET,POST",
     allowedHeaders: "Content-Type",
-}));
+  })
+);
 
 const PORT = 5000;
 
 // Demo credentials
 const DEMO_EMAIL = "demo@gmail.com";
 const DEMO_PASSWORD = "123456";
+
+// Root route (fixes 404)
+app.get("/", (req, res) => {
+  res.send("Backend is running fine");
+});
 
 // Login API
 app.post("/login", (req, res) => {
@@ -28,16 +34,6 @@ app.post("/login", (req, res) => {
   return res.status(401).json({ success: false, message: "Invalid credentials" });
 });
 
-app.get("/", (req, res) => {
-  res.send("Backend running…");
-});
-
 app.listen(PORT, () => {
-  console.log(`Server running`);
+  console.log(`Backend running on:${PORT}`);
 });
-
-
-
-
-
-
