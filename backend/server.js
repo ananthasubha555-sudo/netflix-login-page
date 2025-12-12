@@ -4,10 +4,11 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 
-app.use(cors({
-  origin: "*",
-  methods: "GET,POST,PUT,DELETE",
-  allowedHeaders: "Content-Type"
+app.use(cors(app.use(
+  cors({
+    origin: "https://netflix-login-page-phi.vercel.app", // your frontend URL
+    methods: "GET,POST",
+    allowedHeaders: "Content-Type",
 }));
 
 const PORT = 5000;
@@ -34,6 +35,7 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running`);
 });
+
 
 
 
