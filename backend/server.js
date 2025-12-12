@@ -3,7 +3,10 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "*",   // allow all origins
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],}));
 
 const PORT = 5000;
 
@@ -26,5 +29,6 @@ app.post("/login
 app.listen(PORT, () => {
   console.log(`✅ Backend running on:${PORT}`);
 });
+
 
 
