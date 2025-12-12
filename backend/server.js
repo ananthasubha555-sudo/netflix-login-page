@@ -3,10 +3,12 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+
 app.use(cors({
-  origin: "*",   // allow all origins
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"],}));
+  origin: "*",
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type"
+}));
 
 const PORT = 5000;
 
@@ -15,8 +17,7 @@ const DEMO_EMAIL = "demo@gmail.com";
 const DEMO_PASSWORD = "123456";
 
 // Login API
-app.post("/login
-", (req, res) => {
+app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
   if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
@@ -26,9 +27,15 @@ app.post("/login
   return res.status(401).json({ success: false, message: "Invalid credentials" });
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Backend running on:${PORT}`);
+app.get("/", (req, res) => {
+  res.send("Backend running…");
 });
+
+app.listen(PORT, () => {
+  console.log(`Server running`);
+});
+
+
 
 
 
